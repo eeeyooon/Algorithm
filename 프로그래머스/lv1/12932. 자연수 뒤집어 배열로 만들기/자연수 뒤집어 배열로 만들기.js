@@ -1,5 +1,5 @@
 function solution(n) {
     let answer = [];
-    answer = (n + "").split("").reverse();
-    return answer.map((data) => Number(data));
+    answer = (n + "").split("").reverse().map((data) => Number(data));
+    return answer;
 }
