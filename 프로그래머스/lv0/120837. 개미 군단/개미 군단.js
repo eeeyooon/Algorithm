@@ -6,4 +6,6 @@ function solution(hp) {
     
     return lgAnt + mdAnt + smAnt;
     
+    // return Math.floor(hp/5)+Math.floor((hp%5)/3)+(hp%5)%3;
+    
 }
