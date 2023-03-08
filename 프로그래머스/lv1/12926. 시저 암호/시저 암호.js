@@ -1,14 +1,17 @@
 function solution(s, n) {
-  return s
-    .split("")
-    .map((element) => {
-      if (element === " ") return " ";
-      const code = element.charCodeAt(0);
-      if ((code + n > 90 && code <= 90) || code + n > 122) {
-        return String.fromCharCode(code + n - 26);
-      } else {
-        return String.fromCharCode(code + n);
+  var answer = '';
+  for(let i = 0, len = s.length; i < len; i++) {
+      if(s[i] === " ") {
+          answer += " ";
+          continue;
       }
-    })
-    .join("");
+      let index = s[i].charCodeAt();
+      // 65 - 90
+      // 97 - 122
+      if(index <= 90 && index + n > 90) index -= 26;    
+      else if (index + n > 122) index -= 26;
+      
+      answer += String.fromCharCode(index + n)
+  }
+  return answer;
 }
