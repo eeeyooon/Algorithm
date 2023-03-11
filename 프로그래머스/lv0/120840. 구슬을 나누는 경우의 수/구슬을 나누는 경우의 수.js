@@ -1,8 +1,13 @@
 function solution(balls, share) {
-  const [n, m] = [balls, share];
-  const fact = [BigInt(1), BigInt(1)];
+    if (share === 0) return 1
+    return  factorial(balls) / (factorial(balls - share) * factorial(share))
+}
 
-  for (let i = 2; i <= n; i++) fact[i] = fact[i - 1] * BigInt(i);
+function factorial(n) {
+    let re = BigInt(1)
 
-  return Number(fact[n] / (fact[n - m] * fact[m]));
+    for (let result = 2; result <= n; result++) {
+        re *= BigInt(result)
+    }
+    return re
 }
