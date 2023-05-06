@@ -1,8 +1,10 @@
 function solution(cipher, code) {
-    var answer = '';
-    
-    for (let i=1; i<=cipher.length; i++) {
-        answer += cipher.charAt(code*i -1);
+
+    let answer = '';
+    for (let i=0; i<cipher.length; i++) {
+        if ((i+1)%code === 0) {
+            answer+= cipher[i];
+        }
     }
     
     return answer;
