@@ -1,7 +1,16 @@
 function solution(rsp) {
-    const win = { 0:5, 2:0, 5:2};
     
-    return [...rsp].map(num => win[num]).join('');
+    let new_rsp = rsp.split('');
+    let answer = ''
+    for (let i=0; i<new_rsp.length; i++) {
+        if (new_rsp[i] === '2') {
+            answer += '0'
+        } else if (new_rsp[i] === '0') {
+            answer += '5';
+        } else {
+            answer += '2';
+        }
+    }
+    
+    return answer;
 }
-
-//return win[2] >> 0
