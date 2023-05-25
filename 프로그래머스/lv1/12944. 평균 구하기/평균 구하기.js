@@ -4,7 +4,7 @@ function solution(arr) {
     for (let a of arr) {
         answer += a;
     }
-    
-    
+
     return answer/(arr.length);
 }
+
