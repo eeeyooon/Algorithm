@@ -1,17 +1,16 @@
 function solution(s){
+    let newArr = s.toLowerCase().split("");
     let p = 0;
     let y = 0;
-    // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-    let result = s.toLowerCase().split("");
-    for (let a of result) {
-        if (a === "p") {
+    for (let a of newArr) {
+        if ( a === 'p') {
             p++;
-        } else if (a === "y") {
+        } else if ( a === 'y') {
             y++;
         }
     }
     
-    console.log('Hello Javascript')
+    return (p+y === 0) ? true : (p === y) ? true : false; 
 
-    return p === y ? true : false ;
+    
 }
