@@ -24,7 +24,7 @@ console.log(arr.length); //2
 
 - value : 배열을 채울 값.
 - start(Optional) : 시작 인덱스, 기본 값은 0.
-- end(Optional) : 끝 인덱스, 기본 값은 `this.lenght`.
+- end(Optional) : 끝 인덱스, 기본 값은 `this.length`
 
 ```js
 const arr1 = [1, 2, 3, 4];
