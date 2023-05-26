@@ -1,8 +1,7 @@
 function solution(s) {
-    if (s.length % 2 === 1) {
-       return s[Math.floor(s.length / 2)]
-    } else {
-        return s[Math.floor(s.length / 2 - 1)] + s[Math.floor(s.length / 2)]
-    }
+
+    let centerIdx = Math.floor(s.length / 2);
+    return (s.length % 2) ? s.charAt(centerIdx) : s.charAt(centerIdx - 1) + s.charAt(centerIdx);
+
 
 }
