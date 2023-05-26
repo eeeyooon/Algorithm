@@ -1,28 +1,87 @@
 ## Array.prototype.reduce()
 
-`reduce()`메소드는 배열의 각 요소에 대해 주어진 리듀서(reducer) 함수를 실행하고, 하나의 결과값을 반환한다.
+인수로 함수를 받음.
 
-`reduce()`는 빈 요소를 제외하고 배열 내에 존재하는 각 요소에 대해 `callback`함수를 한 번씩 실행하는데, 콜백 함수는 다음의 네 인수를 받는다.
+`(누적 계산값, 현재값) ⇒ { return 계산값 };`
 
+<br/>
 <br/>
 
 - `accumulator`
+
+누적값. 콜백의 반환값을 누적함. 콜백의 첫번째 호출이면서 따로 initialValue를 제공한 경우에는 initialValue의 값임.
+
 - `currentValue`
-- `currentIndex`
-- `array`
+
+처리할 현재 요소.
+
+- `currentIndex` (opt)
+
+처리할 현재 요소의 인덱스값! initialValue를 제공한 경우 0, 아니면 1부터 시작함.
+
+- `array` (opt)
+
+reduce()를 호출한 배열.
+
+- `initialValue` (opt)
+
+최초 호출에서 첫번째 인수에 제공하는 값. 초기값을 제공하지 않으면 배열의 첫번째 요소를 사용함. 빈 배열에서 초기값없이 reduce()를 호출하면 오류가 발생함.
 
 <br/>
 <br/>
 
-콜백의 최초 호출 때 `accumulator`와 `currentValue`는 다음 두가지 값 중 하나를 가질 수 있다. 만약 `reduce()` 함수 호출에서 `initialValue`를 제공한 경우, `accumulator`는 `initialValue`와 같고 `currentValue`는 배열의 첫번째 값과 같다. `initialValue`를 제공하지 않았다면 `accumulator`는 배열의 첫 번째 값과 같고 `currentValue`는 두번째와 같다. 배열이 비어있는데 `initialValue`도 제공하지 않으면 `TypeError`가 발생한다. 배열의 요소가 하나뿐이면서 `initialValue`를 제공되지 않은 경우, 또는 `initialValue`는 주어졌으나 배열이 빈 경우엔 그 단독값을 `callback` 호출 ㅇ벗이 반환한다.
+### 예제
+
+배열의 모든 수 합치기
+
+```js
+let arr = [1, 2, 3, 4, 5];
+
+// 여러 방법들 : for, for of, forEach
+
+const result = arr.reduce((prev, cur) => {
+  return prev + cur;
+}, 0);
+
+console.log(result); //15
+
+// 0은 초기값. 옵셔널이기때문에 안써도 되긴하는데,
+// 안쓰면 인덱스 첫번째값(여기선 1)이 들어감.
+```
 
 <br/>
 <br/>
-<br/>
 
-### 메모
-이게 뭔 소리야... 다시 더 보기..ㅋ
+`map`이나 `filter` 대신 `reduce`를 사용하여 배열을 반환해보기
 
+```js
+let userList = [
+  { name: "Mike", age: 30 },
+  { name: "Tom", age: 10 },
+  { name: "Jane", age: 27 },
+  { name: "Sue", age: 26 },
+  { name: "Harry", age: 42 },
+  { name: "Steve", age: 60 },
+];
+
+//성인만 뽑아서 배열만들기
+let resuult = userList.reduce((prev, cur) => {
+  if (cur.age > 19) {
+    prev.push(cur.name);
+  }
+  return prev;
+}, []);
+
+/* 
+(1) 누산값 : [](초기값인 빈배열)
+(2) 누산값 : ["Mike"]
+(3) 누산값 : ["Mike", "Jane"]
+ . . . 
+(6) 누산값 : ["Mike", "Jane", "Sue", "Harry", "Steve"]	
+*/
+
+console.log(result); //["Mike", "Jane", "Sue", "Harry", "Steve"]
+```
 
 <br/>
 <br/>
