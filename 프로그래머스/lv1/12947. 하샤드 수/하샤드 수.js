@@ -1,13 +1,8 @@
 function solution(x) {
-    let arr = [];
+    
+    
     let sum = 0;
-    arr = x.toString().split('');
-    
-    for (let n of arr) {
-        sum += Number(n);
-        
-    }
-    
-    return x % sum === 0 ? true : false;
+    x.toString().split("").map((v) => sum += (+v));
+    return x % sum ? false : true;
     
 }
