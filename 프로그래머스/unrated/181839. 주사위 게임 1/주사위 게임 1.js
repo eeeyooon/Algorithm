@@ -1,0 +1,1 @@
+const solution = (a,b) => (a%2 === 0) && (b%2===0) ? (a >= b ? a - b : b - a) : (a%2!==0) && (b%2!==0) ? (Math.pow(a,2) + Math.pow(b,2)) : 2 * (a +b);
