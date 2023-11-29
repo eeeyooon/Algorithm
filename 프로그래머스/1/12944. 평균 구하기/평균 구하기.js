@@ -1,3 +1,3 @@
-function solution(array){
-	return array.reduce((a,b) => a+b) / array.length;
+const solution = (arr) => {
+	return arr.reduce((acc,val) => acc+val, 0) / arr.length;
 }
