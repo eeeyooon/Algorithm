@@ -1,5 +1,3 @@
 function solution(n) {
-    return n.toString().split("").reduce((acc, val) => {
-        return acc + +val;
-    }, 0)
+    return n.toString().split("").reduce((acc,cur) => acc + parseInt(cur, 10) , 0 );
 }
